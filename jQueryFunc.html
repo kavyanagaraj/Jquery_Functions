@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JQuery Functions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+
+  Compiled and minified JavaScript -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script> -->
+    <style media="screen">
+      .redd{
+        color: red;
+      }
+      #codercat, #dojocat, #cherry, #cherryfade{
+        height: 100px;
+        width: 100px;
+      }
+
+      #bef{
+        border: 5px solid blue;
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#addclass").click(function(){
+          $("p").addClass("redd")
+        });
+
+        $("#hide").click(function(){
+          $("#hideme").hide()
+        });
+
+        $("#show").click(function(){
+          $("#hideme").show("slow")
+        });
+
+        $("#toggle").click(function(){
+          $("#codercat").toggle("slow")
+        });
+
+        $("#slidetoggle").click(function(){
+          $("#dojocat").slideToggle("slow")
+        });
+
+        $("#slideUp").click(function(){
+          $("#cherry").slideUp("slow")
+        });
+
+        $("#slideDown").click(function(){
+          $("#cherry").slideDown("slow")
+        });
+
+        $("#fadeOut").click(function(){
+          $("#cherryfade").fadeOut("slow")
+        });
+
+        $("#fadeIn").click(function(){
+          $("#cherryfade").fadeIn("slow")
+        });
+
+        $("#before").click(function(){
+          $("#bef").before("<p> Used before tag </p>");
+        });
+
+        $("#after").click(function(){
+          $("#bef").after("<p> Used after tag </p>");
+        });
+
+        $("#prepend").click(function(){
+          $("#bef").prepend("<p> Used prepend tag </p>");
+        });
+
+        $("#append").click(function(){
+          $("#bef").append("<p> Used append tag </p>");
+        });
+
+        $("#html").click(function(){
+          $("#change_html").html("<h2>Changed it to heading</h2>")
+        })
+
+        $('.get_attr').click(function(){
+    			var classVal = $("#attr1").attr("class")
+    			$('#attr1').append(classVal)
+    		})
+
+    		$('.set_attr').click(function(){
+    			$("#attr1").attr("class", "redd")
+    		})
+
+        $('#get_val').click(function(){
+          var value = $("#val").val();
+          console.log(value);
+        })
+
+        $("#set_val").click(function(){
+          $("#val").val("new value")
+        })
+
+        $("#change_text").click(function(){
+          $("#text").text("hello")
+        })
+
+    		$('.text').click(function(){
+    			$("#text").text("hello")
+    		})
+
+
+        var ele = $("#data")
+        $("#data").data("power", "0")
+        // $.data(ele, "power", "0")
+        $("#get_data").click(function(){
+          var value = $("#data").data("power")
+          console.log(value);
+          $("#power").html(value);
+        })
+
+        $("#add_data").click(function(){
+          var value = $("#data").data("power")
+          $("#data").data("power", parseInt(value) + 10)
+          value = $("#data").data("power")
+          $("#power").html(value);
+          // console.log(parseInt(value) + 10);
+        })
+
+    		// var ele = $("#data")
+    		// $.data(ele, "name", "minh")
+    		// $('.data').click(function(){
+    		// 	var value = $.data(ele,"name")
+    		// 	$("#data").after(value)
+    		// })
+      })
+    </script>
+  </head>
+  <body>
+    <div class="container">
+    <h2>Add Class</h2>
+    <p>Click the button to add class 'red' to the paragraph</p>
+    <button type="button" id = "addclass" name="button">Add Class</button>
+    <hr>
+    <h2>Hide and Show</h2>
+    <p id = "hideme">Click the button to hide</p>
+    <button type="button" id = "hide" name="button">Hide Paragraph</button>
+    <button type="button" id = "show" name="button">Show Paragraph</button>
+    <hr>
+    <h2>Toggle</h2>
+    <img src="./codercat.jpg" id = "codercat" alt="codercat"> <br>
+    <button type="button" id = "toggle" name="button">Toggle</button>
+    <hr>
+    <h2>Slide Toggle</h2>
+    <img src="./dojocat.jpg" id = "dojocat" alt="dojocat"> <br>
+    <button type="button" id = "slidetoggle" name="button">Slide Toggle</button>
+    <hr>
+    <h2>Slide Up and Down</h2>
+    <img src="./cherry.jpg" id = "cherry" alt="cherry"> <br>
+    <button type="button" id = "slideUp" name="button">Slide Up</button>
+    <button type="button" id = "slideDown" name="button">Slide Down</button>
+    <hr>
+    <h2>Fade In and Out</h2>
+    <img src="./cherry.jpg" id = "cherryfade" alt="cherry"> <br>
+    <button type="button" id = "fadeOut" name="button">Fade Out</button>
+    <button type="button" id = "fadeIn" name="button">Fade In</button>
+    <hr>
+    <div id = "bef"> <h2>Before and after</h2></div>
+    <button type="button" id="before">Before</button>
+    <button type="button" id="after">After</button>
+    <button type="button" id="append">Append</button>
+    <button type="button" id="prepend">Prepend</button>
+    <hr>
+    <h2>Html</h2>
+    <p id = "change_html">Click the button to change it to a heading</p>
+    <button type="button" name="button" id = "html">HTML</button>
+    <hr>
+    <h2>Attr</h2>
+    <p class = "green" id = "attr1"> p tag with class = </p>
+    <button class="get_attr">Click to retreive the class</button>
+    <button type="button" name="button" class = "set_attr">Click to change the class</button>
+    <hr>
+    <h2>Val</h2>
+    <input type="text" name="val" value="" id = "val">
+    <button type="button" name="button" id = "get_val">Get Value</button>
+    <button type="button" name="button" id = "set_val">Set Value</button>
+    <hr>
+    <h2>Text</h2>
+    <p id = "text">Click the button to change the text</p>
+    <button type="button" name="button" id= "change_text">Click to change the text</button>
+    <hr>
+    <h2>Data</h2>
+    <p id = "data">I can store some data</p>
+    <p id = "power"></p>
+    <button type="button" name="button" id = "get_data">Click to see power level of p</button>
+    <button type="button" name="button" id = "add_data">Click to add more power</button>
+    <hr>
+    </div>
+  </body>
+</html>
